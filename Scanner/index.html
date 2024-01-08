@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Scanner</title>
+</head>
+
+<body>
+  <video id="video" width="400" height="300" autoplay></video>
+  <canvas id="canvas" width="400" height="300"></canvas>
+  <button onclick="switchCamera()">Switch Camera</button>
+
+  <script src="https://inspirit.github.io/jsfeat/jsfeat.js"></script>
+
+  <script>
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then((stream) => {
+        const video = document.getElementById('video');
+        video.srcObject = stream;
+
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+
+        const templateImage = new Image();
+        templateImage.src = './blue.png'; // Replace with your image path
+
+        templateImage.onload = () => {
+          video.addEventListener('loadeddata', () => {
+            const templateCanvas = document.createElement('canvas');
+            templateCanvas.width = templateImage.width;
+            templateCanvas.height = templateImage.height;
+            const templateContext = templateCanvas.getContext('2d');
+            templateContext.drawImage(templateImage, 0, 0);
+
+            const templateImageData = templateContext.getImageData(0, 0, templateImage.width, templateImage.height);
+            const templateData = new jsfeat.matrix_t(templateImage.width, templateImage.height, jsfeat.U8_t | jsfeat.C1_t);
+            jsfeat.imgproc.grayscale(templateImageData.data, templateImage.width, templateImage.height, templateData, jsfeat.COLOR_RGBA2GRAY);
+
+            setInterval(() => {
+              context.drawImage(video, 0, 0, 400, 300);
+
+              const imageData = context.getImageData(0, 0, 400, 300);
+              const data = new jsfeat.matrix_t(400, 300, jsfeat.U8_t | jsfeat.C1_t);
+              jsfeat.imgproc.grayscale(imageData.data, 400, 300, data, jsfeat.COLOR_RGBA2GRAY);
+
+              const match = new jsfeat.matrix_t(templateImage.width, templateImage.height, jsfeat.U8_t | jsfeat.C1_t);
+              const result = new jsfeat.matrix_t(400 - templateImage.width + 1, 300 - templateImage.height + 1, jsfeat.U8_t | jsfeat.C1_t);
+
+              jsfeat.imgproc.match_template(templateData, data, result);
+              const matchValue = jsfeat.math.minmax(result);
+
+              // Adjust the threshold based on your needs
+              if (matchValue.max_val > 0.7) {
+                // Redirect when the template is matched
+                window.location.href = 'https://users.ionio.gr/~t19soti/Maze/INDEX.html';
+              }
+            }, 1000); // Adjust the interval based on your needs
+          });
+        };
+      })
+      .catch((err) => console.error('Error accessing camera:', err));
+  </script>
+  
+  <script>
+    async function switchCamera() {
+      const videoElement = document.getElementById('video');
+      
+      try {
+        // Get the current stream
+        const stream = videoElement.srcObject;
+        const tracks = stream.getTracks();
+
+        // Stop all tracks
+        tracks.forEach(track => track.stop());
+
+        // Get all video devices
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const videoDevices = devices.filter(device => device.kind === 'videoinput');
+
+        // Use the next available video device
+        const currentDeviceId = tracks[0].getSettings().deviceId;
+        const newDeviceId = videoDevices.find(device => device.deviceId !== currentDeviceId)?.deviceId;
+
+        // Get user media with the new device
+        const newStream = await navigator.mediaDevices.getUserMedia({ video: { deviceId: newDeviceId } });
+
+        // Replace the stream in the video element
+        videoElement.srcObject = newStream;
+      } catch (error) {
+        console.error('Error switching camera:', error);
+      }
+    }
+
+    // Initialize the video with the default camera
+    async function initializeCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        document.getElementById('video').srcObject = stream;
+      } catch (error) {
+        console.error('Error accessing the camera:', error);
+      }
+    }
+
+    // Initialize the camera when the page loads
+    window.onload = initializeCamera;
+  </script>
+</body>
+</html>
