@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="el-GR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> ANSWER </title>
+  <link rel="icon" href="../files/images/favicon.ico">
+  <style>
+  body {background-image:url(../files/images/loveBackground.png); background-repeat: no-repeat; background-size:158%;}
+  body {overflow-x: hidden;}
+  
+  p {font-size:20px;}
+  
+  img {position: relative; display:inline; max-width:80%; scale: 120%;}
+  
+  .center-container {text-align: center;}
+	  
+   button{z-index:1000; background-color:rgb(180, 180, 180); color:black; border:2px solid gray; border-radius:10px;
+          font-family: Arial, Georgia, "Times New Roman", Times, serif; font-size:16px;
+		  display:inline-block; width:100%; padding:10px; text-align:center; margin: 0 auto;} 
+   button:hover {background-color:rgb(200, 200, 200); color:lime;}
+   button:active {box-shadow: 0 5px #666; transform: translateY(2px);}
+  </style>
+  
+  <script>
+var images = new Array();
+function preloadImages(){
+    for (i=0; i < preloadImages.arguments.length; i++){
+
+         images[i] = new Image();
+
+        images[i].src = preloadImages.arguments[i];
+    }
+}
+preloadImages("../files/images/loveBackground.png");
+</script>
+</head>
+
+<body>
+<p> 
+ <strong>
+  Well done, you solved the Labyrinth riddle! 
+ </strong> 
+</p>
+
+<p> 
+ <strong>
+  May i present you your reward: 
+ </strong> 
+</p>
+
+<br>
+
+<div class="center-container">  
+<img src="../answer.png" alt="reward & key to next riddle">
+</div>
+	<br><br><br><br><br><br><br>
+<center> <button  type="button" onclick="window.location.href='../../Scan/index.html'">Back to scanner</button> </center>
+</body>
+</html>
+
+
+
+
+
+
+

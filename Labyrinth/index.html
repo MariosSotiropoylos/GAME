@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="el-GR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Green Labyrinth  </title>
+  <link rel="icon" href="./files/images/favicon.ico">
+  <style>
+  body {background-image:url(./files/images/space.jpg); background-repeat: no-repeat; background-size:cover;}
+  body {overflow-x: hidden;}
+  
+  button {background-color:rgb(180, 180, 180); color:black; border:2px solid gray; border-radius:10px; padding:5px;}
+  button {display:inline; width:65px; text-align:center;}
+  button:hover {background-color:black; color:white;}
+  button:active {box-shadow: 0 5px #000; transform: translateY(4px);}
+  
+  .up {font-family: Arial, Georgia, "Times New Roman", Times, serif; font-size:50px;}
+  
+  .down {font-family: Arial, Georgia, "Times New Roman", Times, serif; font-size:50px;}
+  
+  .right{font-family: Arial, Georgia, "Times New Roman", Times, serif; font-size:50px;} 
+  
+  .left{font-family: Arial, Georgia, "Times New Roman", Times, serif; font-size:50px;}
+  
+  .button-container {text-align: center; display: inline-block;}
+  
+  .upRight {font-family: Calibri; font-size:40px;}
+  
+  .upLeft {font-family: Calibri; font-size:40px;}
+  
+  .downRight {font-family: Calibri; font-size:40px;} 
+  
+  .downLeft {font-family: Calibri; font-size:40px;}
+  
+  img {position: relative; display:inline; max-width:70%;}
+  </style>
+  
+  <script>
+var images = new Array();
+function preloadImages(){
+    for (i=0; i < preloadImages.arguments.length; i++){
+
+         images[i] = new Image();
+
+        images[i].src = preloadImages.arguments[i];
+    }
+}
+preloadImages("./files/images/space.jpg");
+</script>
+</head>
+
+<body>
+	
+  <div style="text-align:center;"> 
+  <div class="button-container">
+	  <br/>
+  <button onclick="document.location='./HTML files/WRONG.html'" class="up">
+     <strong> ↑ </strong>
+  </button>
+  
+  <button onclick="document.location='./HTML files/WRONG.html'" class="left">
+     <strong> ← </strong>
+  </button>
+  
+  <button  onclick="document.location='./HTML files/WRONG.html'" class="right">
+     <strong> → </strong>
+  </button>
+  
+  <button onclick="document.location='./HTML files/WRONG.html'" class="down">
+     <strong> ↓ </strong>
+  </button>
+ 
+ <br> <br> 
+
+   <button onclick="document.location='./HTML files/WRONG.html'" class="upRight">
+      <strong> ↖ </strong>  
+   </button>
+  
+  <button onclick="document.location='./HTML files/blue.html'" class="upLeft">
+      <strong> ↗ </strong>  
+  </button>
+  
+  <button  onclick="document.location='./HTML files/WRONG.html'" class="downLeft">
+      <strong> ↙ </strong>  
+  </button>
+  
+  <button onclick="document.location='./HTML files/WRONG.html'" class="downRight">
+      <strong> ↘ </strong>  
+  </button>
+  
+  </div>
+  <br><br>
+  
+  <img src="./green.png" alt="Green Maze">
+  </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br>  
+	<br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>
+
+
+
+
