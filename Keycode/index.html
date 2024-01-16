@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport"/>
+	<title> iNSERT KEYWORD  </title>
+	<link rel="icon" href="./favicon.ico">
+    <style>
+	body{background-color:lightgray;}
+	h1 {font-size:120px;}
+	
+    .fbutton {background-color:rgb(180, 180, 180); color:black; border:4px solid gray; border-radius:10px; padding:5px;}
+    .fbutton {display:inline; width:165px; font-size:100px; text-align:center;}
+    .fbutton:hover {background-color:black; color:white;}
+    .fbutton:active {box-shadow: 0 5px #000; transform: translateY(4px);}
+	
+	#tutorial { resize: horizontal; width:400px; resize: vertical; height:60px;}
+	
+    input,input::placeholder {font: 3.25rem/3 sans-serif;}
+			
+	button {background-color:rgb(180, 180, 180); color:black; border:4px solid gray; border-radius:10px; padding:5px;}
+    button {display:inline; font-size:80px; width:400px; text-align:center;}
+    button:hover {background-color:black; color:white;}
+    button:active {box-shadow: 0 5px #000; transform: translateY(4px);}
+	</style>
+	</head>
+	
+    <body>
+	<br><br>
+	<div style='text-align:center;'>
+	<h1> Insert Keyword from MAP</h1>
+	
+     <input type="password" placeholder="passcode" id="tutorial"> 
+	 <br><br>
+     <button onclick="protectpasscode()">CHECK</button>
+     <script>
+       function protectpasscode() {
+        const result = document.getElementById("tutorial").value;
+        let passcode = 'ΠΑΡΑΘΕΙΟ';
+        let space = '';
+        if (result == space) {window.location.href = "./WRONG.html"} 
+		
+		else {
+         if (result == passcode) 
+		 {
+            window.location.href = "./answer.html";
+		 } 
+	     else 
+		 { 
+		    window.location.href = "./WRONG.html";
+         }
+            }
+         }
+         </script>
+
+	   </div>
+	   
+	   <div style='text-align:center;'>
+	   <script>
+		 function addNumber(element){document.getElementById('tutorial').value = document.getElementById('tutorial').value+element.value;}
+	   </script>
+	   
+	   <br>	<br> <br> <br>
+	   
+	   <form action="" method="" name="vform">
+        <input type="button" class="fbutton" name="Α" value="Α" id="1" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Β" value="Β" id="2" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Γ" value="Γ" id="3" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Δ" value="Δ" id="4" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Ε" value="Ε" id="5" onClick=addNumber(this); />   
+		   <br><br>
+        <input type="button" class="fbutton" name="Ζ" value="Ζ" id="6" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Η" value="Η" id="7" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Θ" value="Θ" id="8" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Ι" value="Ι" id="9" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Κ" value="Κ" id="10" onClick=addNumber(this); />
+			   <br><br>
+        <input type="button" class="fbutton" name="Λ" value="Λ" id="11" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Μ" value="Μ" id="12" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Ν" value="Ν" id="13" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Ξ" value="Ξ" id="14" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Ο" value="Ο" id="15" onClick=addNumber(this); />
+			   <br><br>
+        <input type="button" class="fbutton" name="Π" value="Π" id="16" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Ρ" value="Ρ" id="17" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Σ" value="Σ" id="18" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Τ" value="Τ" id="19" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Υ" value="Υ" id="20" onClick=addNumber(this); />
+				<br><br>
+        <input type="button" class="fbutton" name="Φ" value="Φ" id="21" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Χ" value="Χ" id="22" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Ψ" value="Ψ" id="23" onClick=addNumber(this); />
+        <input type="button" class="fbutton" name="Ω" value="Ω" id="24" onClick=addNumber(this); />
+       </form>
+	   
+	   </div>
+	   
+   </body>
+</html>

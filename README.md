@@ -8,4 +8,8 @@
 
 - The Pass folder includes the html file for the page that, when solved, will give to the user access the scanner 
 
+- The Keycode folder includes the html file for the page that, when solved, will give to the user a hint for the last riddle
 
+
+
+--- permalink: /index.html ---
