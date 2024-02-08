@@ -10,6 +10,12 @@
 
 - The Keycode folder includes the html file for the page that, when solved, will give to the user a hint for the last riddle
 
+- The Arduino – Hint Button folder includes the Arduino code for the hint button
+
+- The Arduino – Switch Puzzle folder includes the Arduino code for the switch puzzle
+
+- The Processing – Hint Screen folder includes the Processing code for the Hint Screen 
+
 
 
 --- permalink: /index.html ---
